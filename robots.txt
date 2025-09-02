@@ -1,0 +1,6 @@
+# Izinkan semua crawler dan beri tahu lokasi sitemap
+User-agent: *
+Allow: /
+
+# Ganti YOUR-SITE-URL dengan URL situs kamu tanpa spasi
+Sitemap: https://https://aissah23.github.io/Desa-Padenganploso-Kecamatan-Pucuk.github.io//sitemap.xml
