@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layanan Desa - Padenganploso</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="png" href="img/desa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  
+    /* Lembaga Pendidikan Styles */
+    .institution-section {
+      padding: 60px 0;
+      background: white;
+    }
+
+    .institution-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .institution-header h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .institution-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .institution-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--secondary-color);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .institution-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .institution-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+    }
+
+    .institution-card p {
+      margin-bottom: 12px;
+      color: #555;
+      display: flex;
+      align-items: center;
+    }
+
+    .institution-card i {
+      color: var(--secondary-color);
+      margin-right: 10px;
+      width: 20px;
+    }
+
+    .institution-card a {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 15px;
+      padding: 8px 16px;
+      background: var(--secondary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .institution-card a:hover {
+      background: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    .institution-card a i {
+      color: white;
+      margin-right: 8px;
+    }
+    /* Footer */
+.footer {
+  background: var(--dark-color);
+  color: white;
+  padding: 60px 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.footer-section p, .footer-section li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section a {
+  color: #ddc5c5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  border-top: 1px solid #4a6572;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="img/desa.png" alt="Logo Desa" />
+        <h1>Padenganploso</h1>
+      </div>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil-desa.html">Profil Desa</a></li>
+        <li><a href="#administrasi">Layanan</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <section class="breadcrumb">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li>Layanan Desa</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Layanan Administrasi -->
+  <section id="administrasi" class="content layanan-detail">
+    <div class="container">
+      <h2>Layanan Administrasi</h2>
+      <div class="layanan-content">
+        <div class="layanan-info">
+          <p>Desa Padenganploso menyediakan berbagai layanan administrasi kependudukan untuk memudahkan masyarakat dalam mengurus dokumen-dokumen penting.</p>
+          
+          <h3>Jenis Layanan:</h3>
+          <ul>
+            <li>Pembuatan Kartu Keluarga (KK)</li>
+            <li>Pembuatan KTP Elektronik</li>
+            <li>Kartu Identitas Anak (KIA)</li>
+            <li>Akte Kelahiran</li>
+            <li>Akte Kematian</li>
+            <li>Surat Keterangan Tidak Mampu</li>
+            <li>Dan lain-lain</li>
+          </ul>
+          
+          <h3>Persyaratan:</h3>
+          <p>Setiap layanan memiliki persyaratan yang berbeda. Silakan hubungi kantor desa untuk informasi lebih lanjut.</p>
+          
+          <h3>Waktu Layanan:</h3>
+          <p>Senin - Jumat: 08.00 - 14.00 WIB</p>
+
+          <h3>Persyaratan Pembuatan KTP:</h3>
+      <a href="administrasi.html" class="detail-btn">Lihat Detail Persyaratan</a>
+
+
+          
+        
+    </div>
+  </section>
+
+  <!-- Layanan UMKM -->
+  <section id="umkm" class="content layanan-detail umkm">
+    <div class="container">
+      <h2>Layanan UMKM</h2>
+      <div class="layanan-content">
+        <div class="layanan-image">
+          <img src="img/tahu.jpg" alt="Layanan UMKM">
+        </div>
+        <div class="layanan-info">
+          <p>Desa Padenganploso memberikan dukungan penuh untuk pengembangan Usaha Mikro, Kecil, dan Menengah (UMKM) sebagai penggerak ekonomi desa.</p>
+          
+          <h3>Bentuk Dukungan:</h3>
+          <ul>
+            <li>Pelatihan kewirausahaan dan manajemen usaha</li>
+            <li>Bantuan permodalan melalui KUR dan program lainnya</li>
+            <li>Pengembangan kemasan dan branding produk</li>
+          </ul>
+          
+          <h3>UMKM Unggulan:</h3>
+          <p>Desa Padenganploso dikenal dengan UMKM kuliner khasnya seperti Tahu Campur, Soto Ayam, dan Pecel Lele yang telah dipasarkan hingga ke berbagai kota.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Layanan Kesehatan -->
+  <section id="kesehatan" class="content layanan-detail kesehatan">
+    <div class="container">
+      <h2>Layanan Kesehatan</h2>
+      <div class="layanan-content">
+        <div class="layanan-info">
+          <p>Desa Padenganploso menyelenggarakan berbagai layanan kesehatan untuk meningkatkan kesejahteraan masyarakat.</p>
+          
+          <h3>Program Kesehatan:</h3>
+          <ul>
+            <li>Posyandu balita dan lansia</li>
+            <li>Posyandu Jiwa</li>
+            <li>Pelayanan KB dan kesehatan reproduksi</li>
+            <li>Pemeriksaan kesehatan gratis</li>
+            <li>Penyuluhan kesehatan masyarakat</li>
+          </ul>
+          
+          <h3>Jadwal Posyandu:</h3>
+          <p>Setiap 1 bulan sekali</p>
+          
+          <h3>Tenaga Kesehatan:</h3>
+          <p>Desa didukung oleh 2 bidan desa yang siap melayani masyarakat.</p>
+        </div>
+        <div class="layanan-image">
+          <img src="img/pustu.jpg" alt="Layanan Kesehatan">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Layanan Pendidikan -->
+  <section id="pendidikan" class="content layanan-detail pendidikan">
+    <div class="container">
+      <h2>Layanan Pendidikan</h2>
+      <div class="layanan-content">
+        
+        <div class="layanan-info">
+          <p>Desa Padenganploso berkomitmen meningkatkan kualitas pendidikan melalui berbagai program dan layanan.</p>
+          
+          <h3>Fasilitas Pendidikan Formal:</h3>
+          <p>Desa memiliki 2 SD, 2 MI, dan 2 MTS</p>
+    
+ <!-- Lembaga Pendidikan Section -->
+  <section class="institution-section">
+    <div class="container">
+      <div class="institution-header">
+        <h2>Lembaga Pendidikan Formal di Desa Padenganploso</h2>
+      </div>
+      
+      <div class="institution-list">
+        <div class="institution-card">
+          <h4>SD NEGERI 1 PADENGANPLOSO</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Dusun Plosokuning-Desa Padenganploso</p>
+          <p><i class="fas fa-graduation-cap"></i> Sekolah Dasar</p>
+          <a href="https://maps.app.goo.gl/vVQnuZGKA38uGhCt6" target="_blank">
+            <i class="fas fa-map-marked-alt"></i> Lihat Maps
+          </a>
+        </div>
+        
+        <div class="institution-card">
+          <h4>SD NEGERI PADENGANPLOSO II</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Padenganploso No. 2</p>
+          <p><i class="fas fa-graduation-cap"></i> Sekolah Dasar</p>
+          <a href="https://maps.app.goo.gl/urQeBGs6edHx2CKK9" target="_blank">
+            <i class="fas fa-map-marked-alt"></i> Lihat Maps
+          </a>
+        </div>
+        
+        <div class="institution-card">
+          <h4>MIS Al-HIDAYAH</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan No. 5</p>
+          <p><i class="fas fa-graduation-cap"></i> Madrasah Ibtidaiyah</p>
+          <a href="https://maps.app.goo.gl/f99wHQPDMjP4xWKz6" target="_blank">
+            <i class="fas fa-map-marked-alt"></i> Lihat Maps
+          </a>
+        </div>
+        
+        <div class="institution-card">
+          <h4>MTSS Al-HIDAYAH</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan No. 5</p>
+          <p><i class="fas fa-graduation-cap"></i> Madrasah Tsanawiyah</p>
+          <a href="https://maps.app.goo.gl/LkFCapnZ921V9aBTA" target="_blank">
+            <i class="fas fa-map-marked-alt"></i> Lihat Maps
+          </a>
+        </div>
+        
+        <div class="institution-card">
+          <h4>MIS MUHAMMADIYAH 2 PADENGANPLOSO</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Jl. Jeno Sudirman</p>
+          <p><i class="fas fa-graduation-cap"></i> Madrasah Ibtidaiyah</p>
+          <a href="https://maps.app.goo.gl/f99wHQPDMjP4xWKz6" target="_blank">
+            <i class="fas fa-map-marked-alt"></i> Lihat Maps
+          </a>
+        </div>
+        
+        <div class="institution-card">
+          <h4>MTSS MUHAMMADIYAH 30 PADENGANPLOSO</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Dusun Padenganploso</p>
+          <p><i class="fas fa-graduation-cap"></i> Madrasah Tsanawiyah</p>
+          <a href="https://maps.app.goo.gl/f99wHQPDMjP4xWKz6" target="_blank">
+            <i class="fas fa-map-marked-alt"></i> Lihat Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  <section>
+
+  <script src="script.js"></script>
+</body>
+</html>

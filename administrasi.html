@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Administrasi Kependudukan - Kabupaten Lamongan</title>
+    <link rel="shortcut icon" type="png" href="img/desa.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Reset dan gaya dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #1b5e20;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 5px solid #f1c40f;
+        }
+        
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .header-subtitle {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .header-department {
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+        
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #f1c40f, transparent);
+            margin: 20px 0;
+        }
+        
+        /* Section title */
+        .section-title {
+            text-align: center;
+            margin: 30px 0 20px;
+            color: #1b5e20;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #f1c40f;
+        }
+        
+        /* Service cards */
+        .service-container {
+            margin-bottom: 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-header {
+            background-color: #1b5e20;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-header h3 {
+            margin: 0;
+        }
+        
+        .service-content {
+            padding: 10px;
+        }
+        
+        .requirement-list {
+            list-style-type: none;
+        }
+        
+        .requirement-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .requirement-list li:before {
+            content: "•";
+            color: #1b5e20;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-size: 18px;
+        }
+        
+        /* Social media section */
+        .social-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #1b5e20;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .social-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #f1c40f;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #f1c40f;
+            color: #1a5276;
+        }
+        
+        /* Footer */
+        .footer {
+        background: var(--dark-color);
+        color: rgb(44, 44, 44);
+        padding: 60px 0 20px;
+        }
+
+        .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 40px;
+        }
+
+        .footer-section {
+        flex: 1;
+        min-width: 250px;
+        }
+
+        .footer-section h3 {
+        margin-bottom: 20px;
+        color: var(--accent-color);
+        position: relative;
+        padding-bottom: 10px;
+        }
+
+        .footer-section h3:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--accent-color);
+        }
+
+        .footer-section p, .footer-section li {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        }
+
+        .footer-section ul {
+        list-style: none;
+        }
+
+        .footer-section a {
+        color: #20318b;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+        color: var(--accent-color);
+        }
+
+        .footer-bottom {
+        border-top: 1px solid #000000;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #000000;
+        }
+                
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-department">DINAS KEPENDUDUKAN DAN PENCATATAN SIPIL</div>
+            <div class="header-department">KABUPATEN LAMONGAN</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">
+            PERSYARATAN DAN ALUR PELAYANAN ADMINISTRASI KEPENDUDUKAN
+        </div>
+
+        <!-- Kartu Keluarga -->
+        <div class="service-container">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>KARTU KELUARGA</h3>
+                </div>
+                <div class="service-content">
+                    <h4>Tambah Anggota Keluarga:</h4>
+                    <ul class="requirement-list">
+                        <li>Mengisi Formulir F1.01</li>
+                        <li>Mengisi Formulir F1.02</li>
+                        <li>Mengisi Formulir F2.01</li>
+                        <li>Kartu Keluarga Asli</li>
+                        <li>Fotocopy Surat Keterangan Kelahiran dari Bidan/RS/Paramedis/Sejenisnya</li>
+                        <li>Fotocopy Surat Keterangan Kelahiran dari Kelurahan</li>
+                        <li>Foto biometric untuk penduduk berusia 17 tahun</li>
+                        <li>Fotocopy identitas terakhir untuk penduduk rentan</li>
+                        <li>Mengisi formulir F1.04 bagi penduduk rentan</li>
+                        <li>Mengisi formulir 3478M kelahiran bagi penduduk rentan</li>
+                        <li>Melampirkan berkas penduduk yang bersangkutan</li>
+                        <li>Penduduk menyertakan surat pernyataan tidak</li>
+                        <li>Izin dari pemilik rumah apabila menumpang KK, menyewa rumah, Kontrak dan sejenisnya</li>
+                    </ul>
+
+                    <h4>Perubahan KK:</h4>
+                    <ul class="requirement-list">
+                        <li>Mengisi Formulir F1.02</li>
+                        <li>Mengisi Formulir F2.02</li>
+                        <li>Melampirkan data penduduk yang berubah (Fotocopy akta kelahiran, surat nikah, ijazah dan lainnya)</li>
+                        <li>Kartu Keluarga Lama Asli</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- KTP-el -->
+        <div class="service-container">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>KTP - el</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="requirement-list">
+                        <li>Formulir F1.02</li>
+                        <li>Fotocopy Kartu Keluarga</li>
+                        <li>Surat pengantar dari kelurahan untuk pembuatan KTP-el</li>
+                        <li>KTP-el Rusak (Jika rusak)</li>
+                        <li>Surat (Keterangan dari Kepolisian (Jika hilang))</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- KIA -->
+        <div class="service-container">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>KARTU IDENTITAS ANAK (KIA)</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="requirement-list">
+                        <li>Formulir F1.02</li>
+                        <li>Formulir Siki</li>
+                        <li>Fotocopy Surat Keluarga</li>
+                        <li>Fotocopy Akta Kelahiran</li>
+                        <li>Pas foto berwarna Siki (bagi yang belum ada)</li>
+                        <li>Tandangan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Akte Kelahiran -->
+        <div class="service-container">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>AKTE KELAHIRAN</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="requirement-list">
+                        <li>Mengisi Form F2.01 (diketahui Lurah/Kepala Desa)</li>
+                        <li>Surat Keterangan Kelahiran Asli dari Dokter/Bidan/RS/Paramedis, kelahiran (mengisi form yang ditentukan) Bidan dalam saat keterangan kelahiran</li>
+                        <li>Fotocopy KTP-el kedua orang tua</li>
+                        <li>Fotocopy Surat Keterangan Kelahiran dari Kelurahan (bagi yang belum menikah), Surat Nikah</li>
+                        <li>Fotocopy Kartu Keluarga (yang dibasarkan ada nama anak dalam susunan anggota keluarga)</li>
+                        <li>Surat Keterangan bagi yang menyampaikan pada orang lain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Akte Kematian -->
+        <div class="service-container">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>AKTE KEMATIAN</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="requirement-list">
+                        <li>Mengisi Form F2.01 (diketahui Lurah/Kepala Desa)</li>
+                        <li>Surat Keterangan Kematian Asli dari Dokter bagi yang meninggal di Rumah Sakit</li>
+                        <li>Fotocopy Kartu Keluarga</li>
+                        <li>Surat Keterangan bagi keluarga yang menyampaikan pada orang lain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datang Penduduk -->
+        <div class="service-container">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>Datang Penduduk:</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="requirement-list">
+                        <li>Membawa Surat Keterangan Pindah (SATP) dari daerah asal</li>
+                        <li>Membawa KTP asli</li>
+                        <li>Mengisi formulir F1.02</li>
+                        <li>Mengisi Formulir F2.02</li>
+                        <li>Fotocopy Akta Kelahiran (Jika sudah punya)</li>
+                        <li>Fotocopy Ijazah terakhir</li>
+                        <li>Fotocopy Buku nikah / surat cerai (Jika sudah menikah/cerai)</li>
+                        <li>Jika alamat tidak menggunakan alamat sendiri, harus ada persetujuan dari yang punya alamat yang akan digunakan (termasuk kontrakan, Rumah, Kos-kosan)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<!-- Footer -->
+<footer class="footer"><hr>
+<div class="container">
+    <div class="footer-content">
+    <div class="footer-section">
+        <h3>Desa Padenganploso</h3>
+        <p>Bumi Tahu Campur - Desa Kebanggaan Kita</p>
+    </div>
+    <div class="footer-section">
+        <h3>Kontak KKN</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Posko KKN Desa Padenganploso</p>
+        <p><i class="fas fa-phone"></i> (0322) 123456</p>
+        <p><i class="fas fa-envelope"></i> kkn.padenganploso@billfath.ac.id</p>
+    </div>
+    <div class="footer-section">
+        <h3>Tautan Cepat</h3>
+        <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil-desa.html">Profil Desa</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="kkn.html">KKN</a></li>
+        </ul>
+    </div>
+    </div>
+    <div class="footer-bottom">
+    <p>&copy; 2025 Desa Padenganploso. All Rights Reserved.</p>
+    <p>Website by <a href="#">KKN Universitas Billfath</a></p>
+    </div>
+</div>
+</footer>
+</body>
+</html>

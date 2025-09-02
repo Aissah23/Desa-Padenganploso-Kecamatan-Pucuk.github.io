@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kegiatan KKN - Desa Padenganploso</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" type="png" href="img/logo-desa.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+/* KKN Specific Styles */
+.kkn-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7)), url('img/pembukaan.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 87vh;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    color: white;
+    margin-top: none;
+    padding: fixed;
+    
+}
+
+
+.team-section {
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.team-info {
+    padding: 20px;
+}
+
+.team-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.team-info p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.program-section {
+    padding: 80px 0;
+}
+
+.program-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.program-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+.program-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.program-content {
+    padding: 20px;
+}
+
+.program-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.program-content p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.program-date {
+    display: flex;
+    align-items: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.program-date i {
+    margin-right: 5px;
+}
+
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+}
+
+.modal-caption {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.social-media-section {
+    padding: 80px 0;
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.social-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.social-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-10px);
+}
+
+.social-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.social-card h3 {
+    margin-bottom: 15px;
+}
+
+.social-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.social-card a:hover {
+    background: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .kkn-hero {
+    height: 50vh;
+    margin-top: 70px;
+    }
+    
+    .team-container,
+    .program-grid {
+    grid-template-columns: 1fr;
+    }
+    
+    .program-filters {
+    flex-direction: column;
+    align-items: center;
+    }
+    
+    .filter-btn {
+    width: 200px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<nav class="navbar">
+    <div class="logo">
+    <img src="img/logo-desa.png" alt="Logo Desa" />
+    <h1>Padenganploso</h1>
+    </div>
+    <ul class="nav-links" id="menu">
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="profil-desa.html">Profil Desa</a></li>
+    <li><a href="layanan.html">Layanan</a></li>
+    <li><a href="kkn.html" class="active">KKN</a></li>
+    </ul>
+    <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section class="kkn-hero">
+<div class="container">
+    <h2>Kuliah Kerja Nyata 2025</h2>
+    <p>Universitas Billfath di Desa Padenganploso</p>
+
+</div>
+</section>
+
+<!-- Tim KKN -->
+<section class="team-section">
+<div class="container">
+    <h2>Tim KKN Universitas Billfath</h2>
+    <p>Berikut adalah mahasiswa yang tergabung dalam program KKN di Desa Padenganploso:</p>
+    
+    <div class="team-container">
+    <div class="team-member">
+        <img src="img/mursyid.jpg" alt="Koordinator KKN" class="team-img">
+        <div class="team-info">
+        <h3>Mursyid Adi Santoso</h3>
+        <p>Koordinator Desa</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/mursyidsantoso?igsh=OXU5NXBrc2tyamdy"><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+    
+    <div class="team-member">
+        <img src="img/anisa.jpg" alt="Sekretaris KKN" class="team-img">
+        <div class="team-info">
+        <h3>Nur Anisa Febrianti</h3>
+        <p>Sekretaris</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/n.anisa23_?igsh=MWR5MGZ4bmQzaWV6eg=="><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+    
+    <div class="team-member">
+        <img src="img/nazil.jpg" alt="Bendahara KKN" class="team-img">
+        <div class="team-info">
+        <h3>Naazilah Lailatal Hamidah</h3>
+        <p>Bendahara</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/naazilah_lh?igsh=MTF5OG1iNHpvbHV2YQ=="><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="img/ais.jpg" alt="Anggota KKN" class="team-img">
+        <div class="team-info">
+        <h3>Aissah Khusnul Romadhani</h3>
+        <p>Devisi Acara</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/ais.ya_23?igsh=dGV0ZGF0OXV6OHo3"><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="img/nuriya.jpg" alt="Anggota KKN" class="team-img">
+        <div class="team-info">
+        <h3>Nuriyah Syafa'ah</h3>
+        <p>Devisi Acara</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/nuriyahsyafaah_21?igsh=YzljYTk1ODg3Zg=="><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="img/muid.jpg" alt="Anggota KKN" class="team-img">
+        <div class="team-info">
+        <h3>Ahamd Muid</h3>
+        <p>Devisi PDD</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/muid_iyo_kono?utm_source=qr&igsh=dG0zd2MxMHN1bWRh"><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="img/ida.jpg" alt="Anggota KKN" class="team-img">
+        <div class="team-info">
+        <h3>Ida Dwi Anisa Fitria</h3>
+        <p>Devisi PDD</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/idaa_dwiii?igsh=MWVzdjN6bXp5dXJzbg=="><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="img/bueny.jpg" alt="Anggota KKN" class="team-img">
+        <div class="team-info">
+        <h3>Eny Azlah</h3>
+        <p>Devisi Humas</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/marisah747?utm_source=qr&igsh=MXAybXoyOGM2MDhhZw=="><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="img/buromzah.jpg" alt="Anggota KKN" class="team-img">
+        <div class="team-info">
+        <h3>Siti Romzah</h3>
+        <p>Devisi Humas</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/siti.romzah?igsh=MW9rdjhkeDF1dmN0YQ=="><i class="fab fa-instagram"></i></a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<!-- Program KKN -->
+<section class="program-section">
+<div class="container">
+    <h2>Program Kerja KKN</h2>
+    <p>Berbagai program yang telah dan akan dilaksanakan selama KKN berlangsung:</p>
+    <br>
+    <div class="program-filters">
+    <button class="filter-btn active" data-filter="all">Semua</button>
+    <button class="filter-btn" data-filter="pendidikan">Pendidikan</button>
+    <button class="filter-btn" data-filter="ekonomi">Ekonomi</button>
+    <button class="filter-btn" data-filter="lingkungan">Lingkungan</button>
+    </div>
+    
+    <div class="program-grid">
+    <div class="program-card" data-category="pendidikan">
+        <img src="img/l1.jpg" alt="Program Bimbingan Belajar" class="program-img">
+        <div class="program-content">
+        <h3>Pengabdian ke Lembaga</h3>
+        <p>Pengabdian ke lembaga formal maupun non-formal</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> 1 Agustus- 30 Agustus 2025
+        </div>
+        </div>
+    </div>
+    
+    <div class="program-card" data-category="pendidikan">
+        <img src="img/bbc.jpg" alt="Program Penyuluhan Kesehatan" class="program-img">
+        <div class="program-content">
+        <h3>Pelaksanaan BBC (Bimbingan Belajar Cerdas)</h3>
+        <p>Bimbingan Belajar membaca, menulis, mengenal huruf hijaiyah, dan khursus bahasa inggris untuk anak tingkat SD/MI </p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> Agsutus 2025
+        </div>
+        </div>
+    </div>
+    
+    <div class="program-card" data-category="ekonomi">
+        <img src="img/affiliate.jpg" alt="Program Pelatihan UMKM" class="program-img">
+        <div class="program-content">
+        <h3>Pelatihan Shopee Affiliate dan Facebook Pro</h3>
+        <p>Pelatihan Shopee Affiliate dan facebook pro untuk ibu-ibu PKK Desa Padenganploso.</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> 25 Juli 2025
+        </div>
+        </div>
+    </div>
+    
+    <div class="program-card" data-category="pendidikan">
+        <img src="img/makansehat.jpg" alt="Program Penghijauan" class="program-img">
+        <div class="program-content">
+        <h3>Jum'at Ceria dan Edukasi Makanan Sehat</h3>
+        <p>Di isi dengan senam pagi, sarapan bersama, dan Edukasi Makanan Sehat</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> 1 Agustus 2025
+        </div>
+        </div>
+    </div>
+    
+    <div class="program-card" data-category="pendidikan">
+        <img src="img/banjari.jpg" alt="Program Perpustakaan Keliling" class="program-img">
+        <div class="program-content">
+        <h3>Pelatihan Banjari</h3>
+        <p>Pelatihan banjari tingkat MI</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> 18 Agustus 2025
+        </div>
+        </div>
+    </div>
+    
+    <div class="program-card" data-category="pendidikan">
+        <img src="img/kaligrafi.jpg" alt="Program Pelatihan Kerajinan" class="program-img">
+        <div class="program-content">
+        <h3>Pelatihan Kaligrafi</h3>
+        <p>Pelatihan kaligrafi untuk lembaga MI</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> 18 Agustus 2025
+        </div>
+        </div>
+    </div>
+    <div class="program-card" data-category="lingkungan">
+        <img src="img/polisi.jpg" alt="Program Pelatihan Kerajinan" class="program-img">
+        <div class="program-content">
+        <h3>Pengecatan Polisi Tidur</h3>
+        <p>Pengecatan Polisi Tidur di berbagai RT</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> 22-30 Agustus 2025
+        </div>
+        </div>
+    </div>
+    <div class="program-card" data-category="lingkungan">
+        <img src="img/baner.jpg" alt="Program Pelatihan Kerajinan" class="program-img">
+        <div class="program-content">
+        <h3>Pembuatan Banner Per-RT</h3>
+        <p>Pembuatan Banner Ketua RT sebagai penanda dimana tempat ketua RT</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i> Agustus 2025
+        </div>
+        </div>
+    </div>
+    <div class="program-card" data-category="lingkungan">
+        <img src="img/web.jpg" alt="Program Pelatihan Kerajinan" class="program-img">
+        <div class="program-content">
+        <h3>Pembuatan Website Desa</h3>
+        <p>Pembuatan website desa yang memuat beberapa informasi tentang desa</p>
+        <div class="program-date">
+            <i class="far fa-calendar-alt"></i>Agustus 2025
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<!-- Galeri Kegiatan -->
+<section class="content galeri">
+<div class="container">
+    <h2>Galeri Kegiatan KKN</h2>
+    <p>Dokumentasi berbagai kegiatan selama KKN berlangsung:</p>
+    
+    <div class="galeri-container">
+    <div class="galeri-item">
+        <img src="img/pembukaan.jpg" alt="Pembukaan KKN">
+        <div class="galeri-caption">Survei Lokasi KKN</div>
+    </div>
+    <div class="galeri-item">
+        <img src="img/pembukaankec.jpg" alt="Pembukaan KKN">
+        <div class="galeri-caption">Pembukaan KKN</div>
+    </div>
+    <div class="galeri-item">
+        <img src="img/bbc.jpg" alt="Bimbingan Belajar">
+        <div class="galeri-caption">Bimbingan Belajar</div>
+    </div>
+    <div class="galeri-item">
+        <img src="img/f5.jpg" alt="Penyuluhan Kesehatan">
+        <div class="galeri-caption">SDN Padenganploso 2</div>
+    </div>
+    <div class="galeri-item">
+        <img src="img/f4.jpg" alt="Kerja Bakti">
+        <div class="galeri-caption">MI Al-Hidayah</div>
+    </div>
+    <div class="galeri-item">
+        <img src="img/lmim.jpg" alt="Pelatihan UMKM">
+        <div class="galeri-caption">MI Muhammadiyah 2</div>
+    </div>
+    <div class="galeri-item">
+        <img src="img/affiliate.jpg" alt="Kegiatan Olahraga">
+        <div class="galeri-caption">Pelatihan Digital</div>
+    </div>
+    <div class="galeri-item">
+        <img src="img/polisi.jpg" alt="Kegiatan Olahraga">
+        <div class="galeri-caption">Pengecatan Polisi Tidur</div>
+    </div>
+    </div>
+</div>
+</section>
+
+<!-- Modal untuk gambar -->
+<div id="gallery-modal" class="gallery-modal">
+<span class="close-modal">&times;</span>
+<img class="modal-content" id="modal-img">
+<div class="modal-caption" id="modal-caption"></div>
+</div>
+
+<!-- Media Sosial -->
+<section class="social-media-section">
+<div class="container">
+    <h2>Ikuti Kegiatan Kami</h2>
+    <p>Follow media sosial kami untuk mendapatkan update terbaru kegiatan KKN</p>
+    
+    <div class="social-container">
+    <div class="social-card">
+        <div class="social-icon">
+        <i class="fab fa-instagram"></i>
+        </div>
+        <h3>Instagram</h3>
+        <p>@kknbillfath_padenganploso25</p>
+        <a href="https://www.instagram.com/kknbillfath_padenganploso25?igsh=dW84d25qeTE3M3hz" target="_blank">Follow</a>
+    </div>
+    
+    <!--<div class="social-card">
+        <div class="social-icon">
+        <i class="fab fa-facebook"></i>
+        </div>
+        <h3>Facebook</h3>
+        <p>KKN Padenganploso 2025</p>
+        <a href="https://facebook.com/kkn_padenganploso2025" target="_blank">Like</a>
+    </div>
+    
+    <div class="social-card">
+        <div class="social-icon">
+        <i class="fab fa-youtube"></i>
+        </div>
+        <h3>YouTube</h3>
+        <p>KKN Padenganploso</p>
+        <a href="https://youtube.com/kkn_padenganploso" target="_blank">Subscribe</a>
+    </div>-->
+    
+    <div class="social-card">
+        <div class="social-icon">
+        <i class="fab fa-tiktok"></i>
+        </div>
+        <h3>TikTok</h3>
+        <p>@kknbillfathpadenganploso</p>
+        <a href="https://www.tiktok.com/@kknbillfathpadenganploso?_t=ZS-8zLGJ0OJkm8&_r=1" target="_blank">Follow</a>
+    </div>
+    </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+    <div class="footer-content">
+    <div class="footer-section">
+        <h3>Desa Padenganploso</h3>
+        <p>Bumi Tahu Campur - Desa Kebanggaan Kita</p>
+    </div>
+    <div class="footer-section">
+        <h3>Kontak KKN</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Posko KKN Desa Padenganploso</p>
+        <p><i class="fas fa-phone"></i> (0322) 123456</p>
+        <p><i class="fas fa-envelope"></i> kkn.padenganploso@billfath.ac.id</p>
+    </div>
+    <div class="footer-section">
+        <h3>Tautan Cepat</h3>
+        <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="profil-desa.html">Profil Desa</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="kkn.html">KKN</a></li>
+        </ul>
+    </div>
+    </div>
+    <div class="footer-bottom">
+    <p>&copy; 2025 Desa Padenganploso. All Rights Reserved.</p>
+    <p>Website by <a href="#">KKN Universitas Billfath</a></p>
+    </div>
+</div>
+</footer>
+
+<script>
+// JavaScript untuk halaman KKN
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter program
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const programCards = document.querySelectorAll('.program-card');
+    
+    filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Hapus kelas active dari semua tombol
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Tambahkan kelas active ke tombol yang diklik
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        programCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+        });
+    });
+    });
+    
+    // Lightbox galeri
+    const galleryItems = document.querySelectorAll('.galeri-item');
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+    const closeModal = document.querySelector('.close-modal');
+    
+    galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = item.querySelector('img').src;
+        modalCaption.textContent = item.querySelector('.galeri-caption').textContent;
+    });
+    });
+    
+    closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    });
+    
+    modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+    });
+    
+    // Menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    
+    menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    });
+});
+</script>
+</body>
+</html>
